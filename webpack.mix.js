@@ -12,4 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   // ChartJS
+   .js('./node_modules/chart.js/dist/*.js', 'public/chart.js')
+   .js('./node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.js', 'public/js')
+   // Bootstrap JS
+   .copyDirectory('./node_modules/bootstrap/dist/js/*', 'public/bootstrap/js')
+   // Font Awesome
+   .copyDirectory('./node_modules/@fortawesome', 'public/')
+   .sass('./node_modules/startbootstrap-sb-admin-2/scss/sb-admin-2.scss', 'public/css');

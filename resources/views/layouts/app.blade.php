@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -72,9 +69,26 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="pt-5 main-content">
+          @yield('content')
         </main>
     </div>
+
+    <!-- Style -->
+    <style>
+    .sidebar{
+      position: absolute;
+      height: 100%;
+      background: #e8e8e8;
+      width: 200px;
+    }
+    .sidebar .dropdown{
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .main-content{
+      padding-left:200px;
+    }
+    </style>
 </body>
 </html>
