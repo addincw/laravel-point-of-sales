@@ -6,18 +6,26 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    itemCategories: []
+    itemCategories: [],
+    itemUnits: [],
   },
   getters: {
     findItemCategory: (state) => (id) => {
       return state.itemCategories.find((category) => category.id == id)
-    }
+    },
+    findItemUnit: (state) => (id) => {
+      return state.itemUnits.find((unit) => unit.id == id)
+    },
   },
   mutations: {
     retrieveItemCategories(state, payload)
     {
       state.itemCategories = payload
-    }
+    },
+    retrieveItemUnits(state, payload)
+    {
+      state.itemUnits = payload
+    },
   },
   actions: {
     loadItemCategories(context)
@@ -48,7 +56,36 @@ const store = new Vuex.Store({
                reject()
              })
       })
-    }
+    },
+    loadItemUnits(context)
+    {
+      axios.get('/master/items/units')
+           .then(response => context.commit('retrieveItemUnits', response.data))
+           .catch(error => console.log(error))
+    },
+    deleteItemUnits(context, id)
+    {
+      axios.delete(`/master/items/units/${id}`)
+           .then(() => {
+             context.dispatch('loadItemUnits')
+             resolve()
+           })
+           .catch(error => console.log(error))
+    },
+    storeItemUnits(context, request)
+    {
+      return new Promise((resolve, reject) => {
+        axios({ url: request.url, method: request.method, data: request.data })
+             .then(() => {
+               context.dispatch('loadItemUnits')
+               resolve()
+             })
+             .catch(error => {
+               console.log(error)
+               reject()
+             })
+      })
+    },
   }
 })
 

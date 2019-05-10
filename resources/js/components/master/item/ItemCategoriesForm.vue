@@ -51,10 +51,12 @@ export default {
       this.storeItemCategories({method: this.method, url: this.url, data: this.form})
           .then(function(){
             this.isLoading = false
-            this.$router.push('/master/item-categories')
+            this.$notify({ group: 'notification', type: 'success', text: 'data saved' })
+            this.$router.push('/master/item/categories')
           }.bind(this))
           .catch(error => {
             this.isLoading = false
+            this.$notify({ group: 'notification', type: 'error', text: 'failed save data' })
             console.log(error)
           })
     }

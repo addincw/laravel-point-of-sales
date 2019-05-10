@@ -50,14 +50,14 @@
           </div>
 
           <li class="nav-item">
-            <a :class="{'nav-link': true, 'collapsed': !isPathMatch('/master/item-categories')}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a :class="{'nav-link': true, 'collapsed': !isPathMatch('/master/item/categories')}" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
               <i class="fas fa-cube"></i>
               <span>Item</span>
             </a>
-            <div id="collapseTwo" :class="{'collapse': true, 'show': isPathMatch('/master/item-categories') }" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" :class="{'collapse': true, 'show': isPathMatch('/master/item') }" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <router-link class="collapse-item" to="/master/item-categories">Categories</router-link>
-                <router-link class="collapse-item" to="/master/item-units">Units</router-link>
+                <router-link class="collapse-item" to="/master/item/categories">Categories</router-link>
+                <router-link class="collapse-item" to="/master/item/units">Units</router-link>
                 <router-link class="collapse-item" to="/master/items">Items</router-link>
               </div>
             </div>
@@ -319,6 +319,8 @@
 
             </div>
       </div>
+
+      <notifications group="notification" position="bottom right" />
   </div>
 
   <!-- Scripts -->

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Master\Items;
+namespace App\Http\Controllers\Master\Items;
 
 use App\Models\Master\Items\ItemCategories;
 use Illuminate\Http\Request;

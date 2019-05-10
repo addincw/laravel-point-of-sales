@@ -14,4 +14,6 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::apiResource('/master/items/categories', 'Api\Master\Items\ItemCategoriesController');
+Route::apiResource('/master/items/categories', 'Master\Items\ItemCategoriesController');
+Route::apiResource('/master/items/units', 'Master\Items\ItemUnitsController');
+Route::apiResource('/master/items', 'Master\Items\ItemsController');
